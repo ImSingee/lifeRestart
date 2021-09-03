@@ -51,6 +51,10 @@ class Talent {
                 include = { grade, name, description, id };
                 continue;
             }
+            if (id == 1048) {
+                god = { grade, name, description, id };
+                continue;
+            }
             if(!talentList[grade]) talentList[grade] = [{ grade, name, description, id }];
             else talentList[grade].push({ grade, name, description, id });
         }
@@ -58,6 +62,7 @@ class Talent {
         return new Array(10)
             .fill(1).map((v, i)=>{
                 if(!i && include) return include;
+                if (i == 1 && god) return god;
                 const gradeRandom = Math.random();
                 let grade;
                 if(gradeRandom>=0.111) grade = 0;
